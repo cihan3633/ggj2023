@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     Vector3 moveVelocity;
     Rigidbody myRigidbody;
+    Vector3 heightCorrectedPoint;
+    float distanceThreshold = .1f;
+    bool hasTargetPoint;
 
     private void Start()
     {
@@ -15,17 +18,45 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        myRigidbody.MovePosition(myRigidbody.position + moveVelocity * Time.fixedDeltaTime);
+        //if we got a mouse point, calculate the distance and move to that point
+        if (hasTargetPoint)
+        {
+            // calculating the squared value. Cause squareRoot is fairly expensive calculation
+            float sqrDistanceToPoint = (myRigidbody.position - heightCorrectedPoint).sqrMagnitude;
+            myRigidbody.MovePosition(myRigidbody.position + moveVelocity * Time.fixedDeltaTime);
+            print(moveVelocity.magnitude);
+
+            // if we are close enough to mouse point, player can stop. (Dont need to exact point)
+            if (sqrDistanceToPoint < distanceThreshold)
+            {
+                hasTargetPoint = false;
+            }
+        }
     }
 
-    public void SetVelocity(Vector3 moveVelocity)
+    public void SetMovePosition(Vector3 movePosition, float moveSpeed, float turnSpeed)
     {
-        this.moveVelocity = moveVelocity;
+        hasTargetPoint = true;
+        // make sure the mouse's Y value is equal to player's Y value
+        heightCorrectedPoint = new Vector3(movePosition.x, transform.position.y, movePosition.z);
+        Vector3 directionToTarget = (heightCorrectedPoint - transform.position).normalized;
+
+        StopAllCoroutines();
+        StartCoroutine(TurnToFace(directionToTarget, turnSpeed));
+
+        moveVelocity = directionToTarget * moveSpeed;
     }
 
-    public void LookAt(Vector3 lookPoint)
+    // turning face towards to spesific position (mouse position)
+    IEnumerator TurnToFace(Vector3 directionToTarget, float turnSpeed)
     {
-        Vector3 correctPoint = new Vector3(lookPoint.x, transform.position.y, lookPoint.z);
-        transform.LookAt(correctPoint);
+        float targetAngle = 90 - Mathf.Atan2(directionToTarget.z, directionToTarget.x) * Mathf.Rad2Deg;
+
+        while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle)) > 0.05f)
+        {
+            float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetAngle, turnSpeed * Time.deltaTime);
+            transform.eulerAngles = Vector3.up * angle;
+            yield return null;
+        }
     }
 }
