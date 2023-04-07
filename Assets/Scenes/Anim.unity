@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -217,6 +217,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &697248558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 697248559}
+  m_Layer: 0
+  m_Name: WeaponHold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &697248559
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697248558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0014, y: 0.0025, z: 0.0008}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1245275054487327809}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1336224949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1196,6 +1227,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 697248559}
   - {fileID: 4625820438833829117}
   - {fileID: 5130141286216736659}
   - {fileID: 7702342598827910926}
@@ -2797,6 +2829,7 @@ GameObject:
   - component: {fileID: 1523124068}
   - component: {fileID: 1523124069}
   - component: {fileID: 7635726065567350361}
+  - component: {fileID: 7635726065567350362}
   m_Layer: 0
   m_Name: Jammo_Player
   m_TagString: Untagged
@@ -3344,7 +3377,7 @@ Transform:
   m_Children:
   - {fileID: 4935914162385927583}
   m_Father: {fileID: 1245275054487327809}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4628757146045578527
 GameObject:
@@ -4114,7 +4147,7 @@ Transform:
   m_Children:
   - {fileID: 1029178350510094841}
   m_Father: {fileID: 1245275054487327809}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5219434189960514300
 GameObject:
@@ -5113,6 +5146,20 @@ CapsuleCollider:
   m_Height: 1.7208478
   m_Direction: 1
   m_Center: {x: 0, y: 0.85729396, z: 0.015865564}
+--- !u!114 &7635726065567350362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541754001644544305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bb2cd0cc9b1ab04295f7709f331a1f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponHold: {fileID: 697248559}
+  startingGun: {fileID: 4394184491946493661, guid: 688a047b06e0a1f4d82c4d242d6d1c73, type: 3}
 --- !u!1 &7678658564801038193
 GameObject:
   m_ObjectHideFlags: 0
@@ -5158,7 +5205,7 @@ Transform:
   m_Children:
   - {fileID: 8263932001657130248}
   m_Father: {fileID: 1245275054487327809}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7720914279108685860
 Transform:
@@ -5208,7 +5255,7 @@ Transform:
   m_Children:
   - {fileID: 5518930826183144974}
   m_Father: {fileID: 1245275054487327809}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7969958674387993211
 GameObject:
