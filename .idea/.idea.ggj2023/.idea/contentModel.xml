@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\akpna\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\akpna\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_ggj2023.-318742397.00" t="ExcludeRecursive" />
+    <e p="C:\Users\akpna\OneDrive\Masaüstü\UnityProjects\GoogleGameJam23\google\ggj2023" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Assets" t="Include" />
+        <e p="Jammo-Character" t="Include">
+          <e p="Animations" t="Include">
+            <e p="Default" t="Include" />
+          </e>
+          <e p="Files" t="Include" />
+          <e p="Materials" t="Include" />
+          <e p="Models" t="Include" />
+          <e p="Prefabs" t="Include" />
+          <e p="Scenes" t="Include">
+            <e p="JammoScene" t="Include" />
+            <e p="JammoScene_Profiles" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="CharacterSkinController.cs" t="Include" />
+            <e p="MovementInput.cs" t="Include" />
+          </e>
+          <e p="Textures" t="Include">
+            <e p="Alternates" t="Include" />
+            <e p="mixbot1.json" t="Include" />
+          </e>
+        </e>
+        <e p="Materials" t="Include" />
+        <e p="Scenes" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="Player.cs" t="Include" />
+          <e p="PlayerController.cs" t="Include" />
+        </e>
+      </e>
+      <e p="ggj2023.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

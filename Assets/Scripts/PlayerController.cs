@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,10 +11,17 @@ public class PlayerController : MonoBehaviour
     Vector3 heightCorrectedPoint;
     float distanceThreshold = .1f;
     bool hasTargetPoint;
+    private Animator anime;
 
     private void Start()
     {
         myRigidbody = GetComponent<Rigidbody>();
+        anime = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        Anim();
     }
 
     private void FixedUpdate()
@@ -58,5 +66,10 @@ public class PlayerController : MonoBehaviour
             transform.eulerAngles = Vector3.up * angle;
             yield return null;
         }
+    }
+
+    void Anim()
+    {
+        anime.SetBool("RunBoolAnim",hasTargetPoint);
     }
 }
