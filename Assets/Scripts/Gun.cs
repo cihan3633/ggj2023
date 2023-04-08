@@ -6,8 +6,11 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] private Transform muzzle;
     [SerializeField] private Bullet bullet;
-    [SerializeField] private float msBetweenShots = 250;
+    [SerializeField] private float msBetweenShots = 100;
     [SerializeField] private float bulletSpeed = 35;
+
+    [SerializeField] private Shell shell;
+    [SerializeField] private Transform shellEjectionPoint;
     
     float nextShotTime;
 
@@ -18,6 +21,8 @@ public class Gun : MonoBehaviour
             nextShotTime = Time.time + msBetweenShots / 1000;
             Bullet newBullet = Instantiate(bullet, muzzle.position, muzzle.rotation);
             newBullet.SetBulletSpeed(bulletSpeed);
+
+            Instantiate(shell, shellEjectionPoint.position, shellEjectionPoint.rotation);
         }
     }
 

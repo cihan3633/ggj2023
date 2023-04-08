@@ -37,10 +37,10 @@ public class Player : MonoBehaviour
         //        playerController.SetMovePosition(point, moveSpeed, turnSpeed);
         //    }
         //}
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    gunController.Shoot();
-        //}
+        if (Input.GetMouseButton(0))
+        {
+            gunController.Shoot();
+        }
         //if (Input.GetMouseButtonUp(0))
         //{
         //    animator.SetBool("ShoutBool", false);
