@@ -12,6 +12,7 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/sddf.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
       </list>
     </option>
   </component>

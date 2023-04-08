@@ -29,8 +29,12 @@
           </e>
         </e>
         <e p="Materials" t="Include" />
+        <e p="Prefabs" t="Include" />
         <e p="Scenes" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="Bullet.cs" t="Include" />
+          <e p="Gun.cs" t="Include" />
+          <e p="GunController.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
         </e>
