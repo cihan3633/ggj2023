@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.AI;
+
 public class EnemyController : MonoBehaviour
 {
+   private Animator anim;
    public NavMeshAgent _agent;
    [SerializeField] Transform _player;
    public LayerMask ground, player;
@@ -28,6 +30,7 @@ public class EnemyController : MonoBehaviour
    private void Awake()
    {
       _agent = GetComponent<NavMeshAgent>();
+      anim = GetComponent<Animator>();
    }
 
    private void Update()
@@ -41,6 +44,7 @@ public class EnemyController : MonoBehaviour
       if (!playerInSightRange && !playerInAttackRange) Patroling();
       if (playerInSightRange && !playerInAttackRange) ChasePlayer();
      // if (playerInSightRange && playerInAttackRange) Attack();
+     enemyAnim();
    }
 
    //Methods
@@ -61,6 +65,7 @@ public class EnemyController : MonoBehaviour
       if (distanceToDestinationPoint.magnitude < 1.0f)
       {
          destinationPointSet = false;
+         
       }
    }
 
@@ -78,6 +83,11 @@ public class EnemyController : MonoBehaviour
          destinationPointSet = true;
       }
 
+   }
+
+   void enemyAnim()
+   {
+      anim.SetBool("runingEnemy",destinationPointSet);
    }
 
    void ChasePlayer()

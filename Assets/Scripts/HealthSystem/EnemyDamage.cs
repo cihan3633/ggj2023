@@ -9,12 +9,28 @@ public class EnemyDamage : MonoBehaviour
     public int damage = 25;
     public int _attackcooldown = 1;
     private float _attacknext = 0.0f;
+
+    private Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" && Time.time > _attacknext )
+        //&& Time.time > _attacknext
+        if (collision.gameObject.tag == "Player"  )
         {
-            _attacknext = Time.time + _attackcooldown;
-            healthSystem.TakeDamage(damage);
+            anim.SetBool("attackingEnemy",true);
+            //_attacknext = Time.time + _attackcooldown;
+            
+        }
+        else
+        {
+            anim.SetBool("attackingEnemy",false);
         }
     }
+
+    
 }
