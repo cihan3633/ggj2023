@@ -8,6 +8,11 @@ public class GunController : MonoBehaviour
     [SerializeField] private Gun startingGun;
     Gun equippedGun;
 
+    public float GetWeaponHeight
+    {
+        get { return weaponHold.position.y; }
+    }
+
     private void Start()
     {
         EquipGun(startingGun);
@@ -29,6 +34,14 @@ public class GunController : MonoBehaviour
         if (equippedGun != null)
         {
             equippedGun.Shoot();
+        }
+    }
+
+    public void Aim(Vector3 aimPoint)
+    {
+        if (equippedGun != null)
+        {
+            equippedGun.Aim(aimPoint);
         }
     }
 }

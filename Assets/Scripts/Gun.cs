@@ -20,4 +20,9 @@ public class Gun : MonoBehaviour
             newBullet.SetBulletSpeed(bulletSpeed);
         }
     }
+
+    public void Aim(Vector3 aimPint)
+    {
+        transform.LookAt(aimPint);
+    }
 }
