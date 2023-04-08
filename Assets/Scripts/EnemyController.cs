@@ -15,14 +15,15 @@ public class EnemyController : MonoBehaviour
    private bool destinationPointSet;
 
 
-   public float timeBetweenAttacks;
-   private bool alreadyAttacked;
-   public GameObject sphere;
+   //public float timeBetweenAttacks;
+   //private bool alreadyAttacked;
+   //public GameObject sphere;
 
    //Ranges
    public float sightRange, attackRange;
    public bool playerInSightRange, playerInAttackRange;
    public float patrolRange;
+   //public float patrolingSpeed;
 
    private void Awake()
    {
@@ -39,7 +40,7 @@ public class EnemyController : MonoBehaviour
 
       if (!playerInSightRange && !playerInAttackRange) Patroling();
       if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-      if (playerInSightRange && playerInAttackRange) Attack();
+     // if (playerInSightRange && playerInAttackRange) Attack();
    }
 
    //Methods
@@ -84,10 +85,10 @@ public class EnemyController : MonoBehaviour
       _agent.SetDestination(_player.position);
    }
 
-   void Attack()
-   {
+   //void Attack()
+   //{
 
-   }
+   //}
 
 
 
