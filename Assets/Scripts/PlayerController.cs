@@ -6,8 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
 {
-    Vector3 moveVelocity;
+
     Rigidbody myRigidbody;
+    Vector3 moveVelocity;
     Vector3 heightCorrectedPoint;
     float distanceThreshold = .1f;
     bool hasTargetPoint;
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Anim();
+        AnimateWalking();
     }
 
     private void FixedUpdate()
@@ -59,6 +60,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator TurnToFace(Vector3 directionToTarget, float turnSpeed)
     {
         float targetAngle = 90 - Mathf.Atan2(directionToTarget.z, directionToTarget.x) * Mathf.Rad2Deg;
+        // due to incompatibility with animation
+        targetAngle += 50;
 
         while (Mathf.Abs(Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle)) > 0.05f)
         {
@@ -68,8 +71,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Anim()
+    void AnimateWalking()
     {
-        anime.SetBool("RunBoolAnim",hasTargetPoint);
+        anime.SetBool("RunBoolAnim", hasTargetPoint);
+        print("run bool anim = " + anime.GetBool("RunBoolAnim"));
     }
 }

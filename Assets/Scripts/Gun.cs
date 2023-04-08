@@ -7,7 +7,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform muzzle;
     [SerializeField] private Bullet bullet;
     [SerializeField] private float msBetweenShots = 250;
-    [SerializeField] private float bulletSpeed = 10;
+    [SerializeField] private float bulletSpeed = 35;
+    
     float nextShotTime;
 
     public void Shoot()
