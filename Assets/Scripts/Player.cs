@@ -24,27 +24,39 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        MoveInput();
-        RotationInput();
-        //if (Input.GetMouseButton(1))
-        //{
-        //    Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
-        //    Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-        //    float rayDistance;
-        //    if (groundPlane.Raycast(ray, out rayDistance))
-        //    {
-        //        Vector3 point = ray.GetPoint(rayDistance);
-        //        playerController.SetMovePosition(point, moveSpeed, turnSpeed);
-        //    }
-        //}
-        if (Input.GetMouseButton(0))
+        //MoveInput();
+        //RotationInput();
+
+        Ray ray = mainCam.ScreenPointToRay(Input.mousePosition);
+        Plane groundPlane = new Plane(Vector3.up, Vector3.up * gunController.GetWeaponHeight);
+        float rayDistance;
+        Vector3 point = Vector3.zero;
+        if (groundPlane.Raycast(ray, out rayDistance))
         {
+            point = ray.GetPoint(rayDistance);
+            //playerController.LookAt(point);
+            crossHair.transform.position = point;
+            //crosshairDetectTarget (change the color of crosshair)
+            //if ((new Vector2(point.x, point.y) - new Vector2(transform.position.x, transform.position.z)).sqrMagnitude > 2.25)
+            //{
+            //    gunController.Aim(point);
+            //}
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            playerController.SetMovePosition(point, moveSpeed, turnSpeed);
+            //AnimatePlayer(.71f, .71f);
+        }
+        if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Q))
+        {
+            if ((new Vector2(point.x, point.y) - new Vector2(transform.position.x, transform.position.z)).sqrMagnitude > 2.25)
+            {
+                gunController.Aim(point);
+            }
+            playerController.SetMovePosition(point, 0 , turnSpeed);
             gunController.Shoot();
         }
-        //if (Input.GetMouseButtonUp(0))
-        //{
-        //    animator.SetBool("ShoutBool", false);
-        //}
     }
 
     void MoveInput()

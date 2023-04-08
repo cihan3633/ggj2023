@@ -518,8 +518,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  turnSpeed: 720
-  crossHair: {fileID: 1988991287}
+  turnSpeed: 800
+  crossHair: {fileID: 1988991288}
 --- !u!114 &1523124069
 MonoBehaviour:
   m_ObjectHideFlags: 0
