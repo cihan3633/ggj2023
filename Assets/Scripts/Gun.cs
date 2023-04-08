@@ -13,7 +13,15 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform shellEjectionPoint;
     
     float nextShotTime;
+    Vector3 recoilSmoothDampVelocity;
 
+    void LateUpdate()
+    {
+        // Back to original position of the gun from recoil
+        transform.localPosition = Vector3.SmoothDamp(transform.localPosition, Vector3.zero, ref recoilSmoothDampVelocity, .1f);
+    }
+
+    // implement reloading
     public void Shoot()
     {
         if (Time.time > nextShotTime)
@@ -24,6 +32,8 @@ public class Gun : MonoBehaviour
 
             Instantiate(shell, shellEjectionPoint.position, shellEjectionPoint.rotation);
         }
+        // Gun recoil random value
+        transform.localPosition -= Vector3.forward * .0005f;
     }
 
     public void Aim(Vector3 aimPint)

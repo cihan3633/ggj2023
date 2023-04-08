@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
         }
         if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Q))
         {
+            // make sure the gun does not turn inside of the player
             if ((new Vector2(point.x, point.y) - new Vector2(transform.position.x, transform.position.z)).sqrMagnitude > 2.25)
             {
                 gunController.Aim(point);
