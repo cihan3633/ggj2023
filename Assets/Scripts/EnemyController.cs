@@ -9,7 +9,7 @@ public class EnemyController : MonoBehaviour
 {
    public Animator anim;
    public NavMeshAgent _agent;
-   [SerializeField] Transform _player;
+   Transform _player;
    public LayerMask ground, player;
 
    //Destination
@@ -27,10 +27,11 @@ public class EnemyController : MonoBehaviour
    public float patrolRange;
    public float patrolingSpeed = 1;
    public float chaseSpeed = 3.5f;
-   private void Awake()
+   private void Start()
    {
       _agent = GetComponent<NavMeshAgent>();
        anim = GetComponent<Animator>();
+        _player = GameObject.FindWithTag("Player").transform;
    }
 
    private void Update()

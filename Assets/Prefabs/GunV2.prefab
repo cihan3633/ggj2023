@@ -85,7 +85,7 @@ MonoBehaviour:
   msBetweenShots: 150
   bulletSpeed: 35
   msBetweenGrenade: 5000
-  grenadeForce: 10
+  grenadeForce: 11.63
   bulletsPerMag: 7
   reloadTime: 0.33
   gunRecoilMinMax: {x: 0.002, y: 0.005}
