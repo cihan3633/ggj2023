@@ -19708,11 +19708,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c62dba5694fceab4cb924da0fa23ac8c, type: 3}
   m_PrefabInstance: {fileID: 871129785}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &488680632 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 711745754147509635, guid: 24c6ebd23b94c31458465c30e5d99e30, type: 3}
-  m_PrefabInstance: {fileID: 1536542433}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &490214981
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46954,11 +46949,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bfd42714b4e164f91ba3d2cd647dd2cb, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -60874,7 +60869,7 @@ PrefabInstance:
     - target: {fileID: 1053049948898214341, guid: 24c6ebd23b94c31458465c30e5d99e30, type: 3}
       propertyPath: soundClipShout
       value: 
-      objectReference: {fileID: 8300000, guid: 3c36ae0b0b72e2f43ab3a1f9283b40e1, type: 3}
+      objectReference: {fileID: 8300000, guid: 9f47970cb637d427aa5a08e75cccc0ea, type: 3}
     - target: {fileID: 1053049948898214343, guid: 24c6ebd23b94c31458465c30e5d99e30, type: 3}
       propertyPath: m_Constraints
       value: 112
@@ -75851,10 +75846,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2020260941102055223, guid: 6aeb08fbd753fcc428b338ce1d1f8c0a, type: 3}
-      propertyPath: _player
-      value: 
-      objectReference: {fileID: 488680632}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aeb08fbd753fcc428b338ce1d1f8c0a, type: 3}
 --- !u!1001 &1957372004

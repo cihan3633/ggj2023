@@ -849,7 +849,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 2020260941102055220}
   _agent: {fileID: 2020260941102055224}
-  _player: {fileID: 0}
   ground:
     serializedVersion: 2
     m_Bits: 64
@@ -893,6 +892,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: {fileID: 0}
   _player: {fileID: 0}
+  zombieClipAttack: {fileID: 8300000, guid: 5ce6bb262e363834db2b5cdef8a21155, type: 3}
 --- !u!1 &2020260941092523254
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,9 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform shellEjectionPoint;
     [SerializeField] private ParticleSystem shootingParticle;
     [SerializeField] private ParticleSystem grenadeParticle;
+    
+    //ses
+    [SerializeField] private AudioClip bombAudio;
 
     [Header("Sound Effects")]
     // sounds variables are goes here...
@@ -83,6 +86,8 @@ public class Gun : MonoBehaviour
             newGrenade.AddTorque(Random.insideUnitSphere * grenadeForce);
             grenadeParticle.Play();
             GunRecoil(true);
+            //ses
+            SoundManager.Instance.playAudio(bombAudio,transform.position);
         }
     }
 

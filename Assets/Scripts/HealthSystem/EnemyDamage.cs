@@ -7,6 +7,7 @@ public class EnemyDamage : MonoBehaviour
     public Health _health;
     public GameObject _player; 
     private EnemyController _enemyController;
+    [SerializeField] private AudioClip zombieClipAttack;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class EnemyDamage : MonoBehaviour
         {
             Destroy(_player); 
             _enemyController.anim.SetBool("attackingEnemy",false);
+            SoundManager.Instance.playAudio(zombieClipAttack,transform.position);
         }
       
     }

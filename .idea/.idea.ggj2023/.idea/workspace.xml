@@ -15,10 +15,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraFollow.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/HealthSystem/EnemyDamage.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GunController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SoundManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HealthSystem/EnemyDamage.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Gun.cs" />
       </list>
     </option>
   </component>

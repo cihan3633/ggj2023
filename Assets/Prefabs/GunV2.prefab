@@ -95,6 +95,7 @@ MonoBehaviour:
   shellEjectionPoint: {fileID: 1087325708120426373}
   shootingParticle: {fileID: 6367497685053986920}
   grenadeParticle: {fileID: 1096553462347827086}
+  bombAudio: {fileID: 8300000, guid: b86f3b3aab92445b1bd23372680ebc05, type: 3}
 --- !u!1 &6440753661253100061
 GameObject:
   m_ObjectHideFlags: 0
