@@ -25,6 +25,7 @@ public class Gun : MonoBehaviour
     [Header("Effects")]
     [SerializeField] private Shell shell;
     [SerializeField] private Transform shellEjectionPoint;
+    [SerializeField] private ParticleSystem shootingParticle;
 
     float nextShotTime;
     float nextGrenadeTime;
@@ -62,6 +63,7 @@ public class Gun : MonoBehaviour
 
             Instantiate(shell, shellEjectionPoint.position, shellEjectionPoint.rotation);
 
+            shootingParticle.Play();
             // Gun recoil random value
             GunRecoil(false);
         }
