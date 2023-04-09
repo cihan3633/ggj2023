@@ -6,6 +6,7 @@ public class GunController : MonoBehaviour
 {
     [SerializeField] private Transform weaponHold;
     [SerializeField] private Gun startingGun;
+   
     Gun equippedGun;
 
     public float GetWeaponHeight
@@ -35,6 +36,7 @@ public class GunController : MonoBehaviour
         {
             equippedGun.Shoot();
         }
+        
     }
 
     public void Aim(Vector3 aimPoint)

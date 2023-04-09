@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed = 5;
     [SerializeField] private float turnSpeed = 180;
     [SerializeField] private Crosshair crossHair;
+    [SerializeField] private AudioClip soundClipShout;
+
     Animator animator;
     GunController gunController;
     PlayerController playerController;
@@ -50,6 +52,8 @@ public class Player : MonoBehaviour
         }
         if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Q))
         {
+            SoundManager.Instance.playAudio(soundClipShout,transform.position);
+            
             // make sure the gun does not turn inside of the player
             if ((new Vector2(point.x, point.y) - new Vector2(transform.position.x, transform.position.z)).sqrMagnitude > 2.25)
             {
@@ -57,6 +61,7 @@ public class Player : MonoBehaviour
             }
             playerController.SetMovePosition(point, 0 , turnSpeed);
             gunController.Shoot();
+            
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
