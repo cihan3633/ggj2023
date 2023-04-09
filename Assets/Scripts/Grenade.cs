@@ -28,7 +28,7 @@ public class Grenade : MonoBehaviour
     void Explode()
     {
         exploded = true;
-        print("Explosing...");
+        print("Exploding...");
         // Effects...
         //explosionEffect.Play();
         //Collider[] nearbyObjects = Physics.OverlapSphere(transform.position, explosionRadius, collisionMask);

@@ -26,6 +26,10 @@ public class Gun : MonoBehaviour
     [SerializeField] private Shell shell;
     [SerializeField] private Transform shellEjectionPoint;
     [SerializeField] private ParticleSystem shootingParticle;
+    [SerializeField] private ParticleSystem grenadeParticle;
+
+    [Header("Sound Effects")]
+    // sounds variables are goes here...
 
     float nextShotTime;
     float nextGrenadeTime;
@@ -77,6 +81,7 @@ public class Gun : MonoBehaviour
             Rigidbody newGrenade = Instantiate(grenade, muzzle.position, muzzle.rotation) as Rigidbody;
             newGrenade.AddForce(transform.forward * grenadeForce, ForceMode.VelocityChange);
             newGrenade.AddTorque(Random.insideUnitSphere * grenadeForce);
+            grenadeParticle.Play();
             GunRecoil(true);
         }
     }
