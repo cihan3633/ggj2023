@@ -7,9 +7,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/HealthSystem/HealthSystem.cs" root0="FORCE_HIGHLIGHTING" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -40,8 +37,9 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -49,8 +47,9 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -63,72 +62,6 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1317" height="29" key="GridCell.Tab.0.bottom" timestamp="1680964780631">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780631" />
-    <state width="1317" height="29" key="GridCell.Tab.0.center" timestamp="1680964780630">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780630" />
-    <state width="1317" height="29" key="GridCell.Tab.0.left" timestamp="1680964780630">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780630" />
-    <state width="1317" height="29" key="GridCell.Tab.0.right" timestamp="1680964780630">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780630" />
-    <state width="1317" height="29" key="GridCell.Tab.1.bottom" timestamp="1680964780631">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780631" />
-    <state width="1317" height="29" key="GridCell.Tab.1.center" timestamp="1680964780631">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780631" />
-    <state width="1317" height="29" key="GridCell.Tab.1.left" timestamp="1680964780631">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780631" />
-    <state width="1317" height="29" key="GridCell.Tab.1.right" timestamp="1680964780631">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780631" />
-    <state width="1317" height="29" key="GridCell.Tab.2.bottom" timestamp="1680964780631">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.2.bottom/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780631" />
-    <state width="1317" height="29" key="GridCell.Tab.2.center" timestamp="1680964780631">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.2.center/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780631" />
-    <state width="1317" height="29" key="GridCell.Tab.2.left" timestamp="1680964780631">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.2.left/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780631" />
-    <state width="1317" height="29" key="GridCell.Tab.2.right" timestamp="1680964780631">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.2.right/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780631" />
-    <state width="1317" height="29" key="GridCell.Tab.3.bottom" timestamp="1680964780632">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.3.bottom/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780632" />
-    <state width="1317" height="29" key="GridCell.Tab.3.center" timestamp="1680964780632">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.3.center/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780632" />
-    <state width="1317" height="29" key="GridCell.Tab.3.left" timestamp="1680964780632">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.3.left/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780632" />
-    <state width="1317" height="29" key="GridCell.Tab.3.right" timestamp="1680964780632">
-      <screen x="1920" y="0" width="1360" height="768" />
-    </state>
-    <state width="1317" height="29" key="GridCell.Tab.3.right/0.0.1536.824/1920.0.1360.768@1920.0.1360.768" timestamp="1680964780632" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

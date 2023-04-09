@@ -7,14 +7,14 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-   private Animator anim;
+   public Animator anim;
    public NavMeshAgent _agent;
    [SerializeField] Transform _player;
    public LayerMask ground, player;
 
    //Destination
    public Vector3 destinationPoint;
-   private bool destinationPointSet;
+   public bool destinationPointSet;
 
 
    //public float timeBetweenAttacks;
@@ -25,12 +25,12 @@ public class EnemyController : MonoBehaviour
    public float sightRange, attackRange;
    public bool playerInSightRange, playerInAttackRange;
    public float patrolRange;
-   //public float patrolingSpeed;
-
+   public float patrolingSpeed = 1;
+   public float chaseSpeed = 3.5f;
    private void Awake()
    {
       _agent = GetComponent<NavMeshAgent>();
-      anim = GetComponent<Animator>();
+       anim = GetComponent<Animator>();
    }
 
    private void Update()
@@ -60,7 +60,7 @@ public class EnemyController : MonoBehaviour
          _agent.SetDestination(destinationPoint);
       }
 
-      //İf distance between npc and player is less than 1.0f, It is set false.As a result npc back to patroling.
+      //İf distance between npc and destination point is less than 1.0f, It is set false.As a result npc back to patroling.
       Vector3 distanceToDestinationPoint = transform.position - destinationPoint;
       if (distanceToDestinationPoint.magnitude < 1.0f)
       {
@@ -71,13 +71,17 @@ public class EnemyController : MonoBehaviour
 
    void SearchNewPosition()
    {
+      if (_agent.speed >patrolingSpeed)
+      {
+         _agent.speed = patrolingSpeed;
+      }
       float randomPositionX = UnityEngine.Random.Range(-patrolRange, patrolRange);
       float randomPositionZ = UnityEngine.Random.Range(-patrolRange, patrolRange);
 
       destinationPoint = new Vector3(transform.position.x + randomPositionX, transform.position.y,transform.position.z + randomPositionZ);
-      //_agent.SetDestination(destinationPoint);
+     
 
-      //Returns true if the ray intersects with a Collider, otherwise false.
+        //Returns true if the ray intersects with a Collider, otherwise false.
       if (Physics.Raycast(destinationPoint, -transform.up, 2.0f, ground))
       {
          destinationPointSet = true;
@@ -87,12 +91,32 @@ public class EnemyController : MonoBehaviour
 
    void enemyAnim()
    {
-      anim.SetBool("runingEnemy",destinationPointSet);
+      if (playerInSightRange== false)
+      {
+         anim.SetBool("runingEnemy",false);
+      }
+      if (playerInSightRange == true)
+      {
+         anim.SetBool("runingEnemy",true);
+      }
    }
 
+   
    void ChasePlayer()
    {
+      _agent.speed = chaseSpeed;
       _agent.SetDestination(_player.position);
+      destinationPointSet = false;
+      Vector3 distance = transform.position -_player.position;
+      
+      if(distance.magnitude < 5.0f)
+      {
+         anim.SetBool("attackingEnemy",true);
+      }
+      else
+      {
+         anim.SetBool("attackingEnemy",false);
+      }
    }
 
    //void Attack()

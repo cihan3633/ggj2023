@@ -2,35 +2,74 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class EnemyDamage : MonoBehaviour
 {
-    public HealthSystem healthSystem;
-    public int damage = 25;
-    public int _attackcooldown = 1;
-    private float _attacknext = 0.0f;
+    public Health _health;
+    public GameObject _player; 
+    private EnemyController _enemyController;
 
-    private Animator anim;
-
-    private void Start()
+    private void Awake()
     {
-        anim = GetComponent<Animator>();
+        _enemyController = GetComponent<EnemyController>();
+        
     }
 
-    private void OnCollisionStay(Collision collision)
+
+    public void Damage(int amount)
     {
-        //&& Time.time > _attacknext
-        if (collision.gameObject.tag == "Player"  )
+        
+        _health.health -= amount;
+        if (_health.health <= 0)
         {
-            anim.SetBool("attackingEnemy",true);
-            //_attacknext = Time.time + _attackcooldown;
-            
+            Destroy(_player); 
+            _enemyController.anim.SetBool("attackingEnemy",false);
         }
-        else
-        {
-            anim.SetBool("attackingEnemy",false);
-        }
+      
     }
 
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//public int damage = 25;
+   // public int _attackcooldown = 1;
+    //private float _attacknext = 0.0f;
+
+    //private Animator anim;
+
+  //  private void Start()
+  //  {
+       // anim = GetComponent<Animator>();
+    //}
+
+   // public void OnCollisionStay(Collision collision)
+   // {
+        //&& Time.time > _attacknext
+        //if (collision.gameObject.tag == "Player" && Time.time > _attacknext  )
+       // {
+            //_attacknext = Time.time + _attackcooldown;
+            //health.TakeDamage(25);
+            
+       // }
+        // else
+        // {
+        //     anim.SetBool("attackingEnemy",false);
+        // }
+        // anim.SetBool("attackingEnemy",true);
+   // }
+
+    
+
