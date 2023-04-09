@@ -8,9 +8,19 @@ public class LivingEntity : MonoBehaviour
     protected bool dead;
     protected float health;
 
+    protected virtual void Start()
+    {
+        health = startingHealth;
+    }
+
     public float GetHealth()
     {
         return health;
+    }
+    
+    public float GetStartingHealth()
+    {
+        return startingHealth;
     }
 
     public void TakeDamage(float damage)
