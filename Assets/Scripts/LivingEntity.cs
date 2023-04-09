@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LivingEntity : MonoBehaviour
+public class LivingEntity : MonoBehaviour, IDamageable
 {
     [SerializeField] private float startingHealth;
     protected bool dead;
-    protected float health;
+    [SerializeField]protected float health;
 
     protected virtual void Start()
     {

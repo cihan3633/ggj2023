@@ -96,6 +96,8 @@ MonoBehaviour:
   shootingParticle: {fileID: 6367497685053986920}
   grenadeParticle: {fileID: 1096553462347827086}
   bombAudio: {fileID: 8300000, guid: b86f3b3aab92445b1bd23372680ebc05, type: 3}
+  soundClipShot: {fileID: 8300000, guid: e5a36b00b216beb45af83a531cfe9dc9, type: 3}
+  reloadAudio: {fileID: 8300000, guid: 1de4cce52cadff24e8b4b856aa450ac9, type: 3}
 --- !u!1 &6440753661253100061
 GameObject:
   m_ObjectHideFlags: 0

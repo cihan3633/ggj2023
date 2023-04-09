@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour
     public float followDistance = 6f;
     public float followHeightSpeed = 0.9f;
 
-    private Transform Player;
+    private Transform player;
 
     private float targetHeight;
     private float currentHeight;
@@ -18,24 +18,27 @@ public class CameraFollow : MonoBehaviour
 
     private void Awake()
     {
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
     {
-        targetHeight = Player.position.y + followHeight;
+        if (player != null)
+        {
+            targetHeight = player.position.y + followHeight;
 
-        currentRotation = transform.eulerAngles.y;
+            currentRotation = transform.eulerAngles.y;
 
-        currentHeight = Mathf.Lerp(transform.position.y, targetHeight, followHeightSpeed * Time.deltaTime);
+            currentHeight = Mathf.Lerp(transform.position.y, targetHeight, followHeightSpeed * Time.deltaTime);
 
-        Quaternion euler = Quaternion.Euler(0f, currentRotation, 0f);
+            Quaternion euler = Quaternion.Euler(0f, currentRotation, 0f);
 
-        Vector3 targetPosition = Player.position - (euler * Vector3.forward) * followDistance;
+            Vector3 targetPosition = player.position - (euler * Vector3.forward) * followDistance;
         
-        targetPosition.y = currentHeight;
+            targetPosition.y = currentHeight;
         
-        transform.position = targetPosition;
-        transform.LookAt(Player);
+            transform.position = targetPosition;
+            transform.LookAt(player);
+        }
     }
 }

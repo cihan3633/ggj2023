@@ -27,22 +27,23 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform shellEjectionPoint;
     [SerializeField] private ParticleSystem shootingParticle;
     [SerializeField] private ParticleSystem grenadeParticle;
-    
-    //ses
-    [SerializeField] private AudioClip bombAudio;
 
     [Header("Sound Effects")]
     // sounds variables are goes here...
+    [SerializeField] private AudioClip bombAudio;
+    [SerializeField] private AudioClip soundClipShot;
+    [SerializeField] private AudioClip reloadAudio;
+
 
     float nextShotTime;
     float nextGrenadeTime;
     Vector3 recoilSmoothDampVelocity;
-    int bulletsRemainingInMag;
     bool reloading;
+    public int bulletsRemainingInMagazine { get; private set; }
 
     private void Start()
     {
-        bulletsRemainingInMag = bulletsPerMag;
+        bulletsRemainingInMagazine = bulletsPerMag;
     }
 
 
@@ -52,7 +53,7 @@ public class Gun : MonoBehaviour
         // Back to original position of the gun from recoil
         transform.localPosition = Vector3.SmoothDamp(transform.localPosition, Vector3.zero, ref recoilSmoothDampVelocity, recoilSpeed);
 
-        if (!reloading && bulletsRemainingInMag == 0)
+        if (!reloading && bulletsRemainingInMagazine == 0)
         {
             Reload();
         }
@@ -61,15 +62,16 @@ public class Gun : MonoBehaviour
     // implement reloading
     public void Shoot()
     {
-        if (!reloading && bulletsRemainingInMag > 0 && Time.time > nextShotTime)
+        if (!reloading && bulletsRemainingInMagazine > 0 && Time.time > nextShotTime)
         {
             nextShotTime = Time.time + msBetweenShots / 1000;
             Bullet newBullet = Instantiate(bullet, muzzle.position, muzzle.rotation);
             newBullet.SetBulletSpeed(bulletSpeed);
-            bulletsRemainingInMag--;
+            bulletsRemainingInMagazine--;
 
             Instantiate(shell, shellEjectionPoint.position, shellEjectionPoint.rotation);
 
+            SoundManager.Instance.playAudio(soundClipShot, transform.position);
             shootingParticle.Play();
             // Gun recoil random value
             GunRecoil(false);
@@ -101,8 +103,9 @@ public class Gun : MonoBehaviour
 
     public void Reload()
     {
-        if (!reloading && bulletsRemainingInMag != bulletsPerMag)
+        if (!reloading && bulletsRemainingInMagazine != bulletsPerMag)
         {
+            SoundManager.Instance.playAudio(reloadAudio, transform.position);
             StartCoroutine(AnimateReload());
         }
     }
@@ -132,6 +135,6 @@ public class Gun : MonoBehaviour
         }
 
         reloading = false;
-        bulletsRemainingInMag = bulletsPerMag;
+        bulletsRemainingInMagazine = bulletsPerMag;
     }
 }

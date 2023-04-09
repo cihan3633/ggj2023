@@ -3181,7 +3181,6 @@ MonoBehaviour:
   moveSpeed: 5
   turnSpeed: 800
   crossHair: {fileID: 0}
-  soundClipShout: {fileID: 8300000, guid: 3c36ae0b0b72e2f43ab3a1f9283b40e1, type: 3}
 --- !u!114 &1053049948898214340
 MonoBehaviour:
   m_ObjectHideFlags: 0

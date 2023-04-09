@@ -14,6 +14,11 @@ public class GunController : MonoBehaviour
         get { return weaponHold.position.y; }
     }
 
+    public int GetRemainingBullets
+    {
+        get { return equippedGun.bulletsRemainingInMagazine; }
+    }
+
     private void Start()
     {
         EquipGun(startingGun);

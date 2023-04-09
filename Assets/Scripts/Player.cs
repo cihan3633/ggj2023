@@ -9,7 +9,6 @@ public class Player : LivingEntity
     [SerializeField] private float moveSpeed = 5;
     [SerializeField] private float turnSpeed = 180;
     [SerializeField] private Crosshair crossHair;
-    [SerializeField] private AudioClip soundClipShout;
 
     Animator animator;
     GunController gunController;
@@ -18,6 +17,7 @@ public class Player : LivingEntity
 
     protected override void Start()
     {
+        base.Start();
         playerController = GetComponent<PlayerController>();
         gunController = GetComponent<GunController>();
         animator = GetComponent<Animator>();
@@ -51,9 +51,7 @@ public class Player : LivingEntity
             //AnimatePlayer(.71f, .71f);
         }
         if (Input.GetMouseButton(0) || Input.GetKeyDown(KeyCode.Q))
-        {
-            SoundManager.Instance.playAudio(soundClipShout,transform.position);
-            
+        {            
             // make sure the gun does not turn inside of the player
             if ((new Vector2(point.x, point.y) - new Vector2(transform.position.x, transform.position.z)).sqrMagnitude > 2.25)
             {
