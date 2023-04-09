@@ -6,16 +6,20 @@ public class Gun : MonoBehaviour
 {
     [SerializeField] private Transform muzzle;
     [SerializeField] private Bullet bullet;
+    [SerializeField] private Rigidbody grenade;
 
     [Header("Gun Options")]
     [SerializeField] private float msBetweenShots = 100;
     [SerializeField] private float bulletSpeed = 35;
+    [SerializeField] private float msBetweenGrenade = 1000;
+    [SerializeField] private float grenadeForce = 40;
+
 
     [SerializeField] private int bulletsPerMag;
     [SerializeField] private float reloadTime = .33f;
 
     [Header("Recoil")]
-    [SerializeField] private Vector2 gunRecoilMinMax = new Vector2(.0025f, .005f);
+    [SerializeField] private Vector2 gunRecoilMinMax = new Vector2(.002f, .005f);
     [SerializeField] private float recoilSpeed = .1f;
 
     [Header("Effects")]
@@ -23,6 +27,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform shellEjectionPoint;
 
     float nextShotTime;
+    float nextGrenadeTime;
     Vector3 recoilSmoothDampVelocity;
     int bulletsRemainingInMag;
     bool reloading;
@@ -58,7 +63,19 @@ public class Gun : MonoBehaviour
             Instantiate(shell, shellEjectionPoint.position, shellEjectionPoint.rotation);
 
             // Gun recoil random value
-            transform.localPosition -= Vector3.forward * Random.Range(gunRecoilMinMax.x, gunRecoilMinMax.y);
+            GunRecoil(false);
+        }
+    }
+
+    public void UseGrenade()
+    {
+        if (!reloading && Time.time > nextGrenadeTime)
+        {
+            nextGrenadeTime = Time.time + msBetweenGrenade / 1000;
+            Rigidbody newGrenade = Instantiate(grenade, muzzle.position, muzzle.rotation) as Rigidbody;
+            newGrenade.AddForce(transform.forward * grenadeForce, ForceMode.VelocityChange);
+            newGrenade.AddTorque(Random.insideUnitSphere * grenadeForce);
+            GunRecoil(true);
         }
     }
 
@@ -78,12 +95,18 @@ public class Gun : MonoBehaviour
         }
     }
 
+    void GunRecoil(bool isGrenade)
+    {
+        float recoilValue = isGrenade ? .008f : Random.Range(gunRecoilMinMax.x, gunRecoilMinMax.y);
+        transform.localPosition -= Vector3.forward * recoilValue;
+    }
+
     IEnumerator AnimateReload()
     {
         reloading = true;
         yield return new WaitForSeconds(.2f);
         float reloadSpeed = 1 / reloadTime;
-        float maxReloadAngle = 30;
+        float maxReloadAngle = 45;
         float percent = 0;
         Vector3 initialRotation = transform.localEulerAngles;
 

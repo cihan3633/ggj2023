@@ -52,4 +52,12 @@ public class GunController : MonoBehaviour
             equippedGun.Reload();
         }
     }
+
+    public void ThrowGrenade()
+    {
+        if (equippedGun != null)
+        {
+            equippedGun.UseGrenade();
+        }
+    }
 }

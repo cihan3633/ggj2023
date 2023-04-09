@@ -62,6 +62,16 @@ public class Player : MonoBehaviour
         {
             gunController.Reload();
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            // make sure the gun does not turn inside of the player
+            if ((new Vector2(point.x, point.y) - new Vector2(transform.position.x, transform.position.z)).sqrMagnitude > 2.25)
+            {
+                gunController.Aim(point);
+            }
+            playerController.SetMovePosition(point, 0, turnSpeed);
+            gunController.ThrowGrenade();
+        }
     }
 
     void MoveInput()
