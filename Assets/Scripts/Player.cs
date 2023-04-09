@@ -58,6 +58,10 @@ public class Player : MonoBehaviour
             playerController.SetMovePosition(point, 0 , turnSpeed);
             gunController.Shoot();
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            gunController.Reload();
+        }
     }
 
     void MoveInput()

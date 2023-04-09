@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
             // calculating the squared value. Cause squareRoot is fairly expensive calculation
             float sqrDistanceToPoint = (myRigidbody.position - heightCorrectedPoint).sqrMagnitude;
             myRigidbody.MovePosition(myRigidbody.position + moveVelocity * Time.fixedDeltaTime);
-            print(moveVelocity.magnitude);
 
             // if we are close enough to mouse point, player can stop. (Dont need to exact point)
             if (sqrDistanceToPoint < distanceThreshold)
@@ -93,6 +92,5 @@ public class PlayerController : MonoBehaviour
     void AnimateWalking()
     {
         anime.SetBool("RunBoolAnim", hasTargetPoint);
-        print("run bool anim = " + anime.GetBool("RunBoolAnim"));
     }
 }
