@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
         
+    public void PlayAgain ()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
     
 
 } 
