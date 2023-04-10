@@ -123,7 +123,7 @@ public class EnemyController : LivingEntity
 
     public override void TakeDamage(float damage)
     {
-        Instantiate(deathParticle, transform.position, Quaternion.Euler(new Vector3(-90,0,0)));
+        Destroy(Instantiate(deathParticle, transform.position, Quaternion.Euler(new Vector3(-90, 0, 0))), 2);
         base.TakeDamage(damage);
     }
 }

@@ -8,7 +8,7 @@ public class Grenade : MonoBehaviour
     [SerializeField] private float explosionDelay = 2.5f;
     [SerializeField] private LayerMask collisionMask;
     [SerializeField] ParticleSystem explosionEffect;
-    float damage = 3;
+    float damage = 50;
     float countdown;
     bool exploded = false;
 
