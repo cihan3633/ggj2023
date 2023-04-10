@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grenade : MonoBehaviour
 {
-    [SerializeField] private float explosionRadius = 7;
+    [SerializeField] private float explosionRadius = 6;
     [SerializeField] private float explosionDelay = 2.5f;
     [SerializeField] private LayerMask collisionMask;
     [SerializeField] ParticleSystem explosionEffect;
@@ -29,7 +29,6 @@ public class Grenade : MonoBehaviour
     void Explode()
     {
         exploded = true;
-        print("Exploding...");
         // Effects...
         Instantiate(explosionEffect, transform.position, transform.rotation);
         //explosionEffect.Play();

@@ -9,11 +9,13 @@ public class Player : LivingEntity
     [SerializeField] private float moveSpeed = 5;
     [SerializeField] private float turnSpeed = 180;
     [SerializeField] private Crosshair crossHair;
+    [SerializeField] private GameManager gameManager;
 
     Animator animator;
     GunController gunController;
     PlayerController playerController;
     Camera mainCam;
+    
 
     protected override void Start()
     {
@@ -110,5 +112,13 @@ public class Player : LivingEntity
     {
         bool walking = horizontal != 0 || vertical != 0;
         animator.SetBool("RunBoolAnim", walking);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("EndTrigger"))
+        {
+            gameManager.PlayGame();
+        }
     }
 }
