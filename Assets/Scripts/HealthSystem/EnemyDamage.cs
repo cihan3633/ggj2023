@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
-    public Player player;
+    Player player;
     private EnemyController enemyController;
     [SerializeField] private AudioClip zombieClipAttack;
 

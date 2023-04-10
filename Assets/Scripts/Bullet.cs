@@ -7,7 +7,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] LayerMask collisionMask;
     float bulletSpeed = 10;
     float errorMargin = .1f;
-    float lifeTime = 2;
+    float lifeTime = 1.5f;
+    float damage = 1;
 
     void Start()
     {
@@ -38,6 +39,10 @@ public class Bullet : MonoBehaviour
 
     void OnHitObject(RaycastHit hit) 
     {
-        print(hit.collider.name);
+        IDamageable damageableObject = hit.collider.GetComponent<IDamageable>();
+        if (damageableObject != null)
+        {
+            damageableObject.TakeDamage(damage);
+        }
     }
 }

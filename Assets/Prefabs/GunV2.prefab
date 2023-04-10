@@ -82,7 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzle: {fileID: 7725454717753494324}
   bullet: {fileID: 787699910193216039, guid: c651591b313aed6428978b7969591411, type: 3}
-  grenade: {fileID: 8736844593932301889, guid: 715d8594f93ac744c9888aff2c478f6c, type: 3}
+  grenade: {fileID: 4145979212880668306, guid: 715d8594f93ac744c9888aff2c478f6c, type: 3}
   msBetweenShots: 150
   bulletSpeed: 35
   msBetweenGrenade: 5000

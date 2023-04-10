@@ -5,7 +5,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : LivingEntity
 {
     public Animator anim;
     public NavMeshAgent _agent;
@@ -27,8 +27,10 @@ public class EnemyController : MonoBehaviour
     public float patrolRange;
     public float patrolingSpeed = 1;
     public float chaseSpeed = 3.5f;
-    private void Start()
+    public ParticleSystem deathParticle;
+    protected override void Start()
     {
+        base.Start();
         _agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         _player = GameObject.FindWithTag("Player").transform;
@@ -109,7 +111,7 @@ public class EnemyController : MonoBehaviour
         destinationPointSet = false;
         Vector3 distance = transform.position - _player.position;
 
-        if (distance.sqrMagnitude < 25)
+        if (distance.sqrMagnitude < 8)
         {
             anim.SetBool("attackingEnemy", true);
         }
@@ -119,11 +121,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    //void Attack()
-    //{
-
-    //}
-
-
-
+    public override void TakeDamage(float damage)
+    {
+        Instantiate(deathParticle, transform.position, Quaternion.Euler(new Vector3(-90,0,0)));
+        base.TakeDamage(damage);
+    }
 }

@@ -6,7 +6,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
 {
     [SerializeField] private float startingHealth;
     protected bool dead;
-    [SerializeField]protected float health;
+    protected float health;
 
     protected virtual void Start()
     {
@@ -23,7 +23,7 @@ public class LivingEntity : MonoBehaviour, IDamageable
         return startingHealth;
     }
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         health -= damage;
         if (!dead && health <= 0)
